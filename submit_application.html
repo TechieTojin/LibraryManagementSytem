@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Course Signup Form</title>
+    <!-- Tailwind CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .navbar {
+            background-color: #939598;
+            width: 100%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 60px;
+            z-index: 1000;
+            overflow: auto;
+        }
+
+        .navbar-brand {
+            font-size: 1.5rem;
+        }
+
+        .navbar-nav .nav-link {
+            color: #fff !important;
+        }
+
+        .navbar-nav .nav-link:hover {
+            color: #ddd !important;
+        }
+
+        .form-container {
+            background-color: #939598;
+            width: 100%;
+            max-width: 600px;
+            margin: 80px auto 20px;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+
+        .valid {
+            border-color: #38a169;
+        }
+
+        .invalid {
+            border-color: #e53e3e;
+        }
+
+        .error-message {
+            color: #e53e3e;
+        }
+
+        .success-icon::after {
+            content: '✔';
+            color: #38a169;
+            margin-left: 5px;
+        }
+
+        .error-icon::after {
+            content: '✖';
+            color: #e53e3e;
+            margin-left: 5px;
+        }
+
+        .icon-wrapper {
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        .error-message {
+            position: relative;
+            margin-left: 25px;
+        }
+
+        .input-wrapper {
+            position: relative;
+            margin-bottom: 1rem;
+        }
+
+        .input-wrapper input,
+        .input-wrapper textarea,
+        .input-wrapper select {
+            padding-right: 30px;
+        }
+
+        body {
+            background-image: url('https://cdn.dribbble.com/users/1129235/screenshots/3344482/gif03.gif');
+            background-size: cover;
+            background-position: center;
+            margin: 0;
+            padding-top: 60px;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            max-width: 500px;
+            text-align: center;
+        }
+
+        .modal-content button {
+            margin-top: 10px;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .course-button {
+            margin-left: 10px;
+            padding: 0.5rem 1rem;
+            background-color: #4f4f4f;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .course-button:hover {
+            background-color: #333;
+        }
+
+        .autocomplete-items {
+            position: absolute;
+            border: 1px solid #ddd;
+            border-top: none;
+            z-index: 99;
+            background-color: #fff;
+            max-height: 150px;
+            overflow-y: auto;
+            width: calc(100% - 2px);
+        }
+
+        .autocomplete-item {
+            padding: 10px;
+            cursor: pointer;
+        }
+
+        .autocomplete-item:hover {
+            background-color: #ddd;
+        }
+
+        .custom-submit-button {
+            background-color: #102a45;
+            border-color: #102a45;
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 0.375rem;
+            cursor: pointer;
+            border: none;
+            transition: background-color 0.2s ease, border-color 0.2s ease;
+        }
+
+        .custom-submit-button:hover {
+            background-color: #0d2337;
+            border-color: #0d2337;
+        }
+
+        .custom-submit-button:focus {
+            outline: none;
+            box-shadow: 0 0 0 2px #102a45;
+        }
+
+        .modal-close-button {
+            background-color: #102a45;
+            border-color: #102a45;
+        }
+
+        .modal-close-button:hover {
+            background-color: #0d2337;
+            border-color: #0d2337;
+        }
+
+        .modal-close-button:focus {
+            outline: none;
+            box-shadow: 0 0 0 2px #102a45;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navbar Section -->
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark">
+            <a class="navbar-brand" href="#"> Course Signup</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="homepage.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="aboutUS.html">About Us</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Course Signup Form -->
+    <div class="form-container">
+        <h1 class="text-2xl font-bold text-center">Sign Up</h1>
+        <form id="signupForm" class="space-y-4" novalidate>
+            <!-- Full Name Field -->
+            <div class="input-wrapper">
+                <label for="fullName" class="block text-sm font-medium">Full Name</label>
+                <div class="relative">
+                    <input type="text" id="fullName" name="fullName"
+                        class="w-full px-3 py-2 mt-1 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                        required>
+                    <div id="fullNameIcon" class="icon-wrapper"></div>
+                </div>
+                <p id="fullNameError" class="mt-1 text-sm error-message hidden"></p>
+            </div>
+
+            <!-- Email Field -->
+            <div class="input-wrapper">
+                <label for="email" class="block text-sm font-medium">Email</label>
+                <div class="relative">
+                    <input type="email" id="email" name="email"
+                        class="w-full px-3 py-2 mt-1 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                        required>
+                    <div id="emailIcon" class="icon-wrapper"></div>
+                </div>
+                <p id="emailError" class="mt-1 text-sm error-message hidden"></p>
+            </div>
+
+            <!-- Age Field -->
+            <div class="input-wrapper">
+                <label for="age" class="block text-sm font-medium">Age</label>
+                <div class="relative">
+                    <input type="number" id="age" name="age"
+                        class="w-full px-3 py-2 mt-1 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                        required>
+                    <div id="ageIcon" class="icon-wrapper"></div>
+                </div>
+                <p id="ageError" class="mt-1 text-sm error-message hidden"></p>
+            </div>
+
+            <!-- Course Selection -->
+            <div class="input-wrapper">
+                <label for="course" class="block text-sm font-medium">Select Course</label>
+                <div class="relative">
+                    <input type="text" id="course" name="course"
+                        class="w-full px-3 py-2 mt-1 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                        required>
+                    <button type="button" class="course-button" onclick="window.open('courses.html', '_blank')">View Courses</button>
+                    <div id="courseIcon" class="icon-wrapper"></div>
+                    <div id="autocomplete-list" class="autocomplete-items hidden"></div>
+                </div>
+                <p id="courseError" class="mt-1 text-sm error-message hidden"></p>
+            </div>
+
+            <!-- Phone Number Field -->
+            <div class="input-wrapper">
+                <label for="phone" class="block text-sm font-medium">Phone Number</label>
+                <div class="relative">
+                    <input type="tel" id="phone" name="phone"
+                        class="w-full px-3 py-2 mt-1 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                        required>
+                    <div id="phoneIcon" class="icon-wrapper"></div>
+                </div>
+                <p id="phoneError" class="mt-1 text-sm error-message hidden"></p>
+            </div>
+
+            <!-- Submit Button -->
+            <div class="text-center">
+                <button type="submit" class="custom-submit-button">Submit</button>
+            </div>
+        </form>
+    </div>
+
+    <!-- Modal for Error Messages -->
+    <div id="errorModal" class="modal">
+        <div class="modal-content">
+            <h4 id="modalTitle" class="text-xl font-bold mb-4"></h4>
+            <div id="modalBody"></div>
+            <button id="modalClose" class="modal-close-button">Close</button>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const form = document.getElementById('signupForm');
+            const modal = document.getElementById('errorModal');
+            const modalTitle = document.getElementById('modalTitle');
+            const modalBody = document.getElementById('modalBody');
+            const modalClose = document.getElementById('modalClose');
+
+            const fields = {
+                fullName: {
+                    element: document.getElementById('fullName'),
+                    icon: document.getElementById('fullNameIcon'),
+                    error: document.getElementById('fullNameError'),
+                    validate: value => value.trim() !== '',
+                    errorMessage: 'Full Name is required.'
+                },
+                email: {
+                    element: document.getElementById('email'),
+                    icon: document.getElementById('emailIcon'),
+                    error: document.getElementById('emailError'),
+                    validate: value => /\S+@\S+\.\S+/.test(value),
+                    errorMessage: 'A valid Email is required.'
+                },
+                course: {
+                    element: document.getElementById('course'),
+                    icon: document.getElementById('courseIcon'),
+                    error: document.getElementById('courseError'),
+                    validate: value => value !== '',
+                    errorMessage: 'Course selection is required.'
+                },
+                phone: {
+                    element: document.getElementById('phone'),
+                    icon: document.getElementById('phoneIcon'),
+                    error: document.getElementById('phoneError'),
+                    validate: value => /^\d{10}$/.test(value),
+                    errorMessage: 'Phone Number should be 10 digits.'
+                },
+                age: {
+                    element: document.getElementById('age'),
+                    icon: document.getElementById('ageIcon'),
+                    error: document.getElementById('ageError'),
+                    validate: value => value >= 18,
+                    errorMessage: 'You must be at least 18 years old.'
+                }
+            };
+
+            // Example courses list
+            const courses = [
+                "Introduction to Programming",
+                "Data Structures and Algorithms",
+                "Web Development Basics",
+                "Advanced JavaScript",
+                "Database Management Systems",
+                "Software Engineering Principles",
+                "Machine Learning Fundamentals",
+                "Cybersecurity Essentials",
+                "Mobile App Development",
+                "Cloud Computing"
+            ];
+
+            const courseInput = document.getElementById('course');
+            const autocompleteList = document.getElementById('autocomplete-list');
+
+            courseInput.addEventListener('input', () => {
+                const value = courseInput.value.toLowerCase();
+                autocompleteList.innerHTML = '';
+                if (!value) {
+                    autocompleteList.classList.add('hidden');
+                    return;
+                }
+
+                const filteredCourses = courses.filter(course =>
+                    course.toLowerCase().includes(value)
+                );
+
+                filteredCourses.forEach(course => {
+                    const item = document.createElement('div');
+                    item.classList.add('autocomplete-item');
+                    item.textContent = course;
+                    item.addEventListener('click', () => {
+                        courseInput.value = course;
+                        autocompleteList.classList.add('hidden');
+                    });
+                    autocompleteList.appendChild(item);
+                });
+
+                autocompleteList.classList.remove('hidden');
+            });
+
+            document.addEventListener('click', (event) => {
+                if (!autocompleteList.contains(event.target) && event.target !== courseInput) {
+                    autocompleteList.classList.add('hidden');
+                }
+            });
+
+            form.addEventListener('submit', (event) => {
+                event.preventDefault();
+
+                let isValid = true;
+                const errors = [];
+
+                for (const key in fields) {
+                    const field = fields[key];
+                    const value = field.element.value.trim();
+
+                    if (field.validate(value)) {
+                        field.icon.className = 'icon-wrapper success-icon';
+                        field.error.classList.add('hidden');
+                    } else {
+                        field.icon.className = 'icon-wrapper error-icon';
+                        field.error.textContent = field.errorMessage;
+                        field.error.classList.remove('hidden');
+                        isValid = false;
+                        errors.push(field.errorMessage);
+                    }
+                }
+
+                if (!isValid) {
+                    modalTitle.textContent = 'Form Submission Error';
+                    modalBody.innerHTML = errors.map(err => `<p>${err}</p>`).join('');
+                    modal.style.display = 'flex';
+                } else {
+                    // Redirect to index.html
+                    window.location.href = 'home.html'; // Change this line
+                }
+            });
+
+            modalClose.addEventListener('click', () => {
+                modal.style.display = 'none';
+            });
+
+            window.addEventListener('click', (event) => {
+                if (event.target === modal) {
+                    modal.style.display = 'none';
+                }
+            });
+        });
+    </script>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to Elevate Academy</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #333; /* Dark text color for readability */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column; /* Arrange containers in a column */
+            height: 100vh;
+            background-image: url('https://wallpapers.com/images/hd/zoom-interview-background-majc1ejnshgc1li7.jpg'); /* Modern background image */
+            background-size: cover;
+            background-position: center;
+            text-align: center;
+            padding: 20px; /* Add padding around the containers */
+            overflow: hidden;
+            position: relative;
+        }
+
+        .container {
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+            max-width: 600px;
+            width: 90%;
+            position: absolute;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+        }
+
+        .container.active {
+            opacity: 1;
+        }
+
+        .container:nth-of-type(1) {
+            background: rgba(255, 223, 186, 0.9); /* Light orange */
+            color: #333;
+        }
+
+        .container:nth-of-type(1) h1 {
+            color: #d07e00; /* Darker orange */
+        }
+
+        .container:nth-of-type(1) p {
+            color: #555; /* Slightly lighter text color for a softer look */
+        }
+
+        .container:nth-of-type(2) {
+            background: rgba(186, 239, 255, 0.9); /* Light blue */
+            color: #333;
+        }
+
+        .container:nth-of-type(2) h1 {
+            color: #00aaff; /* Darker blue */
+        }
+
+        .container:nth-of-type(2) p {
+            color: #555; /* Slightly lighter text color for a softer look */
+        }
+
+        .container:nth-of-type(3) {
+            background: rgba(218, 237, 218, 0.9); /* Light green */
+            color: #333;
+        }
+
+        .container:nth-of-type(3) h1 {
+            color: #2a8d2a; /* Darker green */
+        }
+
+        .container:nth-of-type(3) p {
+            color: #555; /* Slightly lighter text color for a softer look */
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+
+        p {
+            font-size: 1.125rem;
+            line-height: 1.6;
+            margin-bottom: 30px;
+        }
+
+        .button {
+            display: inline-block;
+            padding: 15px 30px;
+            background-color: #007BFF;
+            color: white;
+            text-decoration: none;
+            font-size: 1.125rem;
+            border-radius: 5px;
+            transition: background-color 0.3s ease, transform 0.3s ease-in-out;
+            cursor: pointer;
+        }
+
+        .button:hover {
+            background-color: #0056b3;
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+
+<body id="slideshow">
+    <!-- Container 1 -->
+    <div class="container active">
+        <h1>Welcome to Elevate Academy</h1>
+        <p>By TOJIN VARKEY SIMSON</p>
+        <a href="home.html" class="button">Explore Courses</a>
+    </div>
+
+    <!-- Container 2 -->
+    <div class="container">
+        <h1>Welcome to Elevate Academy</h1>
+        <p>By JAIBY MARIYA JOSEPH</p>
+        <a href="home.html" class="button">Explore Courses</a>
+    </div>
+
+    <!-- Container 3 -->
+    <div class="container">
+        <h1>Welcome to Elevate Academy</h1>
+        <p>By MAHALAKSHMI C.</p>
+        <a href="home.html" class="button">Explore Courses</a>
+    </div>
+
+    <script>
+        const containers = document.querySelectorAll('.container');
+        let currentIndex = 0;
+
+        function showNextContainer() {
+            containers[currentIndex].classList.remove('active');
+            currentIndex = (currentIndex + 1) % containers.length;
+            containers[currentIndex].classList.add('active');
+        }
+
+        setInterval(showNextContainer, 7000); // Change slide every 3 seconds
+    </script>
+</body>
+
+</html>

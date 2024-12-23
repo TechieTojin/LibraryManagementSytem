@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enter Student Details</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #a37176;
+            --secondary-color: #a37176;
+            --accent-color:  #a37176;
+            --text-color: #4e434e;
+            --background-color: #FFF0F3;
+        }
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: var(--background-color);
+            background-image: url('https://thumbs.dreamstime.com/b/photo-beautiful-teacher-smiling-front-class-student-background-back-to-school-theme-moment-school-back-to-324687227.jpg');
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            background-size: cover;
+            background-position: center;
+            display: flex;
+        }
+        h1 {
+            color: var(--text-color);
+            text-align: center;
+            margin-bottom: 20px;
+            font-weight: 500;
+        }
+        header, footer {
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 10px 0;
+            text-align: center;
+        }
+        .navbar {
+            background-color: var(--primary-color);
+        }
+        .navbar-brand {
+            color: white !important;
+            font-size: 24px;
+            font-weight: bold;
+        }
+        .nav-link {
+            color: white !important;
+            margin-right: 15px;
+        }
+        .nav-link:hover {
+            color: var(--accent-color) !important;
+        }
+        .navbar-toggler {
+            border: none;
+        }
+        .navbar-toggler-icon {
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23FFFFFF' viewBox='0 0 30 30'%3E%3Cpath stroke='rgba(255, 255, 255, 0.7)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+        }
+        main {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-grow: 1;
+        }
+        .form-container {
+            background-color: rgba(255, 255, 255, 0.4);
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            max-width: 600px;
+            width: 100%;
+            transition: transform 0.3s ease;
+        }
+        .form-container:hover {
+            transform: scale(1.02);
+        }
+        .input-box {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            border: 1px solid var(--secondary-color);
+            border-radius: 6px;
+            box-sizing: border-box;
+            font-size: 16px;
+        }
+        .valid-icon {
+            margin-left: 10px;
+            font-size: 20px;
+        }
+        .valid-icon.correct {
+            color: green;
+        }
+        .valid-icon.wrong {
+            color: red;
+        }
+        .button {
+            background-color: var(--accent-color);
+            color: white;
+            padding: 15px 20px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 18px;
+            font-weight: 500;
+            transition: background-color 0.3s ease;
+            width: 100%;
+        }
+        .button:hover {
+            background-color: var(--text-color);
+        }
+        img {
+            vertical-align: middle;
+        }
+        td {
+            padding: 10px;
+        }
+        @media (max-width: 600px) {
+            .form-container {
+                padding: 20px;
+            }
+            .input-box {
+                padding: 10px;
+            }
+            .button {
+                padding: 12px;
+                font-size: 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg">
+            <a class="navbar-brand" href="#">School Management</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="Adminhome.html">Home</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <div class="form-container">
+            <h1>Enter Student's Details</h1>
+            <form id="studentForm" action="#" method="POST">
+                <table>
+                    <tr>
+                        <td align="right"><img src="https://img.icons8.com/nolan/64/student-male.png" alt="Student Icon"/></td>
+                        <td>
+                            <input class="input-box" type="text" id="std-name" name="std-name" placeholder="Student Name" required>
+                            <span class="valid-icon" id="nameIcon"></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="right"><img src="https://img.icons8.com/nolan/64/pencil.png" alt="Roll Number Icon"/></td>
+                        <td>
+                            <input class="input-box" type="text" id="roll-no" name="rl" placeholder="Roll Number" required>
+                            <span class="valid-icon" id="rollIcon"></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="right"><img src="https://img.icons8.com/nolan/64/father--v1.png" alt="Father's Name Icon"/></td>
+                        <td>
+                            <input class="input-box" type="text" id="f-name" name="f-name" placeholder="Father's Name" required>
+                            <span class="valid-icon" id="fnameIcon"></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="right"><img src="https://img.icons8.com/nolan/64/pay-date.png" alt="Date of Birth Icon"/></td>
+                        <td>
+                            <input class="input-box" type="date" id="dob" name="dob" required>
+                            <span class="valid-icon" id="dobIcon"></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="right"><img src="https://img.icons8.com/nolan/64/phone.png" alt="Contact Number Icon"/></td>
+                        <td>
+                            <input class="input-box" type="tel" id="contact-no" name="cnt-no" placeholder="Contact Number" required>
+                            <span class="valid-icon" id="contactIcon"></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" align="center">
+                            <button class="button" type="submit" name="Submit">Submit</button>
+                        </td>
+                    </tr>
+                </table>
+            </form>
+        </div>
+    </main>
+    <footer>
+        <div class="container text-center">
+            <p>&copy; 2024 School Management. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        const studentForm = document.getElementById('studentForm');
+        
+        function validateName() {
+            const nameInput = document.getElementById('std-name');
+            const nameIcon = document.getElementById('nameIcon');
+            if (nameInput.value.trim().length > 2) {
+                nameIcon.textContent = '✔️';
+                nameIcon.classList.add('correct');
+                nameIcon.classList.remove('wrong');
+            } else {
+                nameIcon.textContent = '❌';
+                nameIcon.classList.add('wrong');
+                nameIcon.classList.remove('correct');
+            }
+        }
+
+        function validateRollNo() {
+            const rollInput = document.getElementById('roll-no');
+            const rollIcon = document.getElementById('rollIcon');
+            if (/^\d+$/.test(rollInput.value)) {
+                rollIcon.textContent = '✔️';
+                rollIcon.classList.add('correct');
+                rollIcon.classList.remove('wrong');
+            } else {
+                rollIcon.textContent = '❌';
+                rollIcon.classList.add('wrong');
+                rollIcon.classList.remove('correct');
+            }
+        }
+
+        function validateFathersName() {
+            const fnameInput = document.getElementById('f-name');
+            const fnameIcon = document.getElementById('fnameIcon');
+            if (fnameInput.value.trim().length > 2) {
+                fnameIcon.textContent = '✔️';
+                fnameIcon.classList.add('correct');
+                fnameIcon.classList.remove('wrong');
+            } else {
+                fnameIcon.textContent = '❌';
+                fnameIcon.classList.add('wrong');
+                fnameIcon.classList.remove('correct');
+            }
+        }
+
+        function validateContact() {
+            const contactInput = document.getElementById('contact-no');
+            const contactIcon = document.getElementById('contactIcon');
+            if (/^\d{10}$/.test(contactInput.value)) {
+                contactIcon.textContent = '✔️';
+                contactIcon.classList.add('correct');
+                contactIcon.classList.remove('wrong');
+            } else {
+                contactIcon.textContent = '❌';
+                contactIcon.classList.add('wrong');
+                contactIcon.classList.remove('correct');
+            }
+        }
+
+        studentForm.addEventListener('input', (event) => {
+            if (event.target.id === 'std-name') validateName();
+            if (event.target.id === 'roll-no') validateRollNo();
+            if (event.target.id === 'f-name') validateFathersName();
+            if (event.target.id === 'contact-no') validateContact();
+        });
+    </script>
+
+</body>
+</html>

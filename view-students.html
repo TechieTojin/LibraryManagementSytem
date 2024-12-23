@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Students</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #a37176;
+            --secondary-color: #a37176;
+            --accent-color:  #a37176;
+            --text-color: #4e434e;
+            --background-color: #FFF0F3;
+        }
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-image: url('https://thumbs.dreamstime.com/b/photo-beautiful-teacher-smiling-front-class-student-background-back-to-school-theme-moment-school-back-to-324687227.jpg');
+            background-size: cover;
+            background-position: center;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        h1 {
+            color: var(--text-color);
+            text-align: center;
+            margin-bottom: 20px;
+            font-weight: 500;
+        }
+        header, footer {
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 10px 0;
+            text-align: center;
+        }
+        .navbar {
+            background-color: var(--primary-color);
+        }
+        .navbar-brand {
+            color: white !important;
+            font-size: 24px;
+            font-weight: bold;
+        }
+        .nav-link {
+            color: white !important;
+            margin-right: 15px;
+        }
+        .nav-link:hover {
+            color: var(--accent-color) !important;
+        }
+        .navbar-toggler {
+            border: none;
+        }
+        main {
+            flex-grow: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .table-container {
+            background-color: rgba(255, 255, 255, 0.8);
+            border-radius: 12px;
+            padding: 20px;
+            max-width: 800px;
+            width: 100%;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid var(--secondary-color);
+        }
+        th {
+            background-color: var(--primary-color);
+            color: white;
+        }
+        footer {
+            text-align: center;
+        }
+        @media (max-width: 600px) {
+            .table-container {
+                padding: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg">
+            <a class="navbar-brand" href="#">Admin Panel</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="Adminhome.html">Home</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <div class="table-container">
+            <h1>Students List</h1>
+            <table id="studentsTable">
+                <thead>
+                    <tr>
+                        <th>Student Name</th>
+                        <th>Student ID</th>
+                        <th>Course</th>
+                        <th>Contact Number</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Student data will be populated here dynamically -->
+                </tbody>
+            </table>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 School Management. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        async function fetchStudents() {
+            try {
+                const response = await fetch('/api/students'); // Adjust the API endpoint accordingly
+                const students = await response.json();
+
+                const studentsTableBody = document.querySelector('#studentsTable tbody');
+                students.forEach(student => {
+                    const row = document.createElement('tr');
+                    row.innerHTML = `
+                        <td>${student.name}</td>
+                        <td>${student.studentId}</td>
+                        <td>${student.course}</td>
+                        <td>${student.contact}</td>
+                    `;
+                    studentsTableBody.appendChild(row);
+                });
+            } catch (error) {
+                console.error('Error fetching students:', error);
+            }
+        }
+
+        // Fetch student data when the page loads
+        window.onload = fetchStudents;
+    </script>
+</body>
+</html>

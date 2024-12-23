@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/buy_book.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Library Management System</title>
+    <style>
+      /* General styles for layout */
+      body {
+        font-family: 'Arial', sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f7f9fc;
+        color: #333;
+        text-align: center;
+      }
+
+      .main_header {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        background-color: #e9ecef;
+        padding: 20px;
+        border-bottom: 2px solid #ccc;
+      }
+
+      .heading h1 {
+        margin: 0;
+        color: #004080;
+      }
+
+      .BUTTON {
+        background-color: #004080;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        cursor: pointer;
+        margin: 10px;
+        transition: background-color 0.3s;
+      }
+
+      .BUTTON:hover {
+        background-color: #003366;
+      }
+
+      .contact-area {
+        max-width: 600px;
+        margin: 20px auto;
+        padding: 20px;
+        background-color: #fff;
+        border-radius: 10px;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+      }
+
+      .content {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 10px;
+      }
+
+      .content img {
+        width: 75px;
+        border-radius: 50%;
+        margin-right: 20px;
+      }
+
+      .content aside h1 {
+        margin: 0;
+        color: #004080;
+        font-size: 1.5em;
+      }
+
+      .content aside h3 {
+        margin: 5px 0;
+        color: #666;
+      }
+
+      .content a {
+        color: #004080;
+        text-decoration: underline;
+      }
+
+      .content a:hover {
+        color: #003366;
+      }
+
+      .title {
+        margin-top: 10px;
+        font-size: 1.2em;
+        font-weight: bold;
+        color: #333;
+      }
+
+      hr {
+        margin: 20px 0;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Back button -->
+    <div>
+      <button class="BUTTON" onclick="location.href='admin_portal.html'" id="log_button">Back</button>
+    </div>
+
+    <div class="main_header">
+      <div class="image_user">
+        <svg xmlns="http://www.w3.org/2000/svg" width="75" height="75" viewBox="0 0 192 192" fill="#666666">
+          <!-- SVG content here -->
+        </svg>
+        <h4>My Profile</h4>
+      </div>
+
+      <div class="heading">
+        <h1 id="portal">Online Library (Admin) Portal</h1>
+      </div>
+    </div>
+
+    <hr>
+
+    <!-- Retailer 1 Contact Info -->
+    <div class="contact-area" id="retailer1">
+      <div class="content">
+        <img src="user2.png" alt="Profile Image">
+        <aside>
+          <h1>Rajendra Prajapat</h1>
+          <h3>rajandra1999@gmail.com</h3>
+          <h3>Mob: 9001162690</h3>
+          <h3><a href="http://www.google.com">Visit our site</a></h3>
+        </aside>
+      </div>
+      <div class="title">Contact Me</div>
+    </div>
+
+    <!-- Retailer 2 Contact Info -->
+    <div class="contact-area" id="retailer2">
+      <div class="content">
+        <img src="user2.png" alt="Profile Image">
+        <aside>
+          <h1>Raj Deepu</h1>
+          <h3>deppo@gmail.com</h3>
+          <h3>Mob: 9885162690</h3>
+          <h3><a href="http://www.google.com">Visit our site</a></h3>
+        </aside>
+      </div>
+      <div class="title">Contact Me</div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Library Fine Information</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f8f9fa;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            width: 80%;
+            margin: 20px auto;
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            overflow-x: auto;
+        }
+        h1 {
+            color: #333333;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #dddddd;
+        }
+        th {
+            background-color: #4CAF50;
+            color: white;
+            font-weight: bold;
+            text-transform: uppercase;
+            border-right: 1px solid #dddddd;
+        }
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        tr:hover {
+            background-color: #ddd;
+        }
+        td:last-child {
+            font-weight: bold;
+            color: #ff0000;
+        }
+        @media screen and (max-width: 600px) {
+            table {
+                overflow-x: auto;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Library Fine Information</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>Student Name</th>
+                    <th>Register Number</th>
+                    <th>Book ID</th>
+                    <th>Title</th>
+                    <th>Author</th>
+                    <th>Department</th>
+                    <th>Due Date <i class="fas fa-calendar-day"></i></th>
+                    <th>Return Date <i class="fas fa-calendar-check"></i></th>
+                    <th>Fine (in Rupees) <i class="fas fa-rupee-sign"></i></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Devi</td>
+                    <td>21cms05</td>
+                    <td>CS005</td>
+                    <td>Introduction to the Theory of Computation</td>
+                    <td>ABRAHAM SIBERSCHATZ</td>
+                    <td>Statistics</td>
+                    <td>2024-01-15 <i class="fas fa-calendar-day"></i></td>
+                    <td>2024-01-20 <i class="fas fa-calendar-check"></i></td>
+                    <td><i class="fas fa-rupee-sign"></i> 10</td>
+                </tr>
+                <tr>
+                    <td>Anish</td>
+                    <td>21cms20</td>
+                    <td>CS001</td>
+                    <td>Introduction to the Theory of Computation</td>
+                    <td>Michael Sipser</td>
+                    <td>Computer Science</td>
+                    <td>2024-01-20 <i class="fas fa-calendar-day"></i></td>
+                    <td>2024-01-23 <i class="fas fa-calendar-check"></i></td>
+                    <td><i class="fas fa-rupee-sign"></i> 4</td>
+                </tr>
+                <tr>
+                    <td>Ponna</td>
+                    <td>21CMS22</td>
+                    <td>CS003</td>
+                    <td>Operating System Concepts</td>
+                    <td>Michael Sipser</td>
+                    <td>Computer Science</td>
+                    <td>2024-03-01 <i class="fas fa-calendar-day"></i></td>
+                    <td>2024-03-05 <i class="fas fa-calendar-check"></i></td>
+                    <td><i class="fas fa-rupee-sign"></i> 8</td>
+                </tr>
+                <tr>
+                    <td>Ligy</td>
+                    <td>21CMS31</td>
+                    <td>CS002</td>
+                    <td>Computer Network</td>
+                    <td>Andrew S</td>
+                    <td>Computer Science</td>
+                    <td>2024-02-15 <i class="fas fa-calendar-day"></i></td>
+                    <td>2024-02-25 <i class="fas fa-calendar-check"></i></td>
+                    <td><i class="fas fa-rupee-sign"></i> 20</td>
+                </tr>
+                <tr>
+                    <td>Sam</td>
+                    <td>21CMS23</td>
+                    <td>ST001</td>
+                    <td>An Introduction to Statistical Learning with Appli...</td>
+                    <td>Gareth James</td>
+                    <td>Statistics</td>
+                    <td>2024-02-10 <i class="fas fa-calendar-day"></i></td>
+                    <td>2024-02-20 <i class="fas fa-calendar-check"></i></td>
+                    <td><i class="fas fa-rupee-sign"></i> 20</td>
+                </tr>
+                <tr>
+                    <td>John</td>
+                    <td>21CMS27</td>
+                    <td>MT001</td>
+                    <td>Book of Proof</td>
+                    <td>Richard Hammack</td>
+                    <td>Mathematics</td>
+                    <td>2024-02-01 <i class="fas fa-calendar-day"></i></td>
+                    <td>2024-02-10 <i class="fas fa-calendar-check"></i></td>
+                    <td><i class="fas fa-rupee-sign"></i> 18</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

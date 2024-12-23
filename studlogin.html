@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login ST JOSEPH'S UNIVERSITY</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      height: 100vh;
+      background-image: url("bil.jpg");
+      background-size: cover;
+      background-position: center;
+    }
+
+    form {
+      background-color: rgba(255, 255, 255, 0.7);
+      border-radius: 8px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+      width: 300px;
+      text-align: center;
+      backdrop-filter: blur(5px);
+    }
+
+    h2 {
+      background-color: silver;
+      color: white;
+      padding: 10px;
+      border-radius: 8px 8px 0 0;
+      margin-top: 0;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 8px;
+      color: #333;
+    }
+
+    input {
+      width: 100%;
+      padding: 8px;
+      margin-bottom: 16px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      box-sizing: border-box;
+    }
+
+    input[type="submit"] {
+      background-color: silver; 
+      cursor: pointer;
+    }
+
+    input[type="submit"]:hover {
+      background-color: #c0c0c0; 
+    }
+
+    a {
+      text-decoration: none;
+      color: #007bff;
+      display: block;
+      margin-top: 12px;
+    }
+
+    .running-message {
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+      background-color: rgba(0, 0, 0, 0.7);
+      color: white;
+      padding: 10px;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <form action="connection.php" method="post" onsubmit="return validateForm()">
+    <h2>ST JOSEPH'S UNIVERSITY Library LOGIN</h2>
+    <label for="username">Username:</label>
+    <input type="text" id="username" name="username" required>
+    <label for="password">Password:</label>
+    <input type="password" id="password" name="password" required>
+    <input type="submit" value="Login">
+  </form>
+
+  <div class="running-message">
+    <marquee behavior="scroll" direction="right">.......WELCOME TO OUR ADMIN LOGIN PAGE...... "PLEASE LOGIN"</marquee>
+  </div>
+
+  <script>
+    function validateForm() {
+      var username = document.getElementById("username").value;
+      var password = document.getElementById("password").value;
+
+      // Basic validation - Check if fields are not empty
+      if (username.trim() === "" || password.trim() === "") {
+        alert("Please enter both username and password.");
+        return false;
+      }
+
+      // Additional security measures can be added here, like checking for SQL injection or XSS attacks
+
+      return true; // Submit the form if all validations pass
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Subjects | Library</title>
+ 
+    <!-- Include external CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: url('bookinfo.jpg'); /* Check and ensure the path to your background image */
+            background-size: cover;
+            background-position: center;
+        }
+        nav {
+            background-color: #333;
+            color: white;
+            padding: 10px;
+        }
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+        nav ul li {
+            display: inline;
+            margin-right: 10px;
+        }
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+        }
+        header {
+    background-color: rgba(0, 0, 0, 0.5); /* Set the background color with reduced opacity */
+    padding: 10px;
+}
+        
+        .head-main {
+         
+            color: white;
+            text-align: center;
+          
+            
+        }
+        
+        .name h1 {
+            margin: 0;
+            font-size: 30px;
+        }
+        .name h2 {
+            margin: 0;
+            font-size: 18px;
+           font-weight: bold;
+        }
+        .images img {
+            max-width: 100px;
+            max-height: 100px;
+            opacity:100%;
+
+            top: 0;
+            left: 0;
+        }
+        footer {
+            background-color: #000000;
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            
+        }
+        .categories {
+            text-align: center;
+            font-weight: bold;
+            padding: 20px;
+            color: rgb(1, 1, 1);
+            
+        }
+        .category-box {
+            display: inline-block;
+			background-color:#c40743e2; 
+			color:white; 
+			text-decoration:none; 
+			padding :10px 20px; 
+			margin :10px; 
+			border-radius :5px; 
+			position:relative; 
+			z-index :1; 
+		}
+		.category-box:hover {
+			background-color:#000000; 
+        
+		}
+    </style>
+</head>
+<body>
+    <nav>
+        <ul>
+           <li><a href="homepg.html">Home</a></li>
+           
+       </ul>
+   </nav>
+   <header class="head-main">
+       <div class="name">
+           <h1>ST JOSEPH'S UNIVERSITY</h1>
+           <h1>LIBRARY</h1>
+       </div>
+       <div class="images">
+           <img src="clglogo.jpg" alt="clg Logo">
+       </div>
+   </header>
+
+   <main>
+       <section class="categories">
+           <h2>BOOK CATEGORIES</h2>
+           <div class="category-list">
+               <a href="physics.php" class="category-box">Physics</a>
+               <a href="chemistry.php" class="category-box">Chemistry</a>
+               <a href="mathematics.php" class="category-box">Mathematics</a>
+               <a href="statistics.php" class="category-box">Statistics</a>
+               <a href="comp.php" class="category-box">ComputerScience</a>
+           </div>
+       </section>
+       <footer>
+           <p>&copy; 2024 Library Management System. All rights reserved.</p>
+       </footer>
+   </main>
+
+   <script src="https://code.jquery.com/jquery-3.6.0.slim.min.js"></script>
+</body>
+</html> 

@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Library Management System</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"> <!-- Font Awesome CSS -->
+    <style>
+        /* Add your custom styles here */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0; /* Light background color */
+            color: #333; /* Text color */
+            background-image: url('https://png.pngtree.com/thumb_back/fh260/background/20230426/pngtree-an-open-book-sitting-open-in-a-library-image_2514661.jpg'); /* Background image URL */
+            background-size: 100%;
+            background-position: center;
+            background-repeat: repeat;
+        }
+
+        header {
+            background-color: #2c3e50; /* Header background color */
+            color: #fff; /* Header text color */
+            padding: 20px;
+            text-align: center;
+            position: relative;
+        }
+
+        #clg-logo {
+            position: absolute;
+            top: 10px;
+            left: 480px;
+        }
+
+        h1 {
+            display: inline-block;
+            margin-left: 120px;
+        }
+
+        .logout-btn {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background-color: silver; /* Logout button background color */
+            color: #2c3e50; /* Logout button text color */
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .logout-btn:hover {
+            background-color: #e74c3c; /* Change color on hover */
+        }
+
+        nav {
+            background-color: #34495e; /* Navbar background color */
+            color: #fff; /* Navbar text color */
+            padding: 10px 0;
+            text-align: center;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            padding: 10px;
+            margin: 0 10px;
+            transition: all 0.3s ease;
+            display: inline-block;
+            border-radius: 5px;
+            border: 2px solid transparent;
+        }
+
+        nav a:hover {
+            background-color: #2c3e50;
+            color: #f39c12; /* Change color on hover */
+            border-color: #f39c12;
+        }
+
+        section {
+            padding: 20px;
+            text-align: center;
+        }
+
+        section h2 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            color: black; /* Section title color */
+        }
+
+        section p {
+            font-size: 16px;
+            color: rgb(0, 0, 0);
+            margin-bottom: 20px;
+        }
+
+        .library-hours,
+        .services,
+        .reference-section {
+            background-color: rgba(255,255,255,0.6);
+            padding: 30px;
+            margin: 20px auto;
+            max-width: 800px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            text-align: left;
+        }
+
+        .library-hours table,
+        .services ul,
+        .reference-section ul {
+            list-style: none;
+            padding-left: 0;
+            margin-top: 0;
+        }
+
+        .library-hours th,
+        .library-hours td {
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+            font-size: 16px;
+        }
+
+        .library-hours th {
+            color: #333;
+        }
+
+        .services h2,
+        .reference-section h2 {
+            color: #333;
+            font-size: 20px;
+            margin-bottom: 20px;
+        }
+
+        .services ul li,
+        .reference-section ul li {
+            margin-bottom: 10px;
+            font-size: 16px;
+            color: black;
+            position: relative;
+            padding-left: 20px;
+        }
+
+        .services ul li a,
+        .reference-section ul li a {
+            color: #000000; /* Link color */
+            text-decoration: none;
+            transition: color 0.3s ease;
+            display: inline-block;
+            border-bottom: 1px dashed transparent;
+        }
+
+        .services ul li a:hover,
+        .reference-section ul li a:hover {
+            color: #2980b9; /* Change color on hover */
+            border-color: #2980b9;
+        }
+
+        .services ul li:before,
+        .reference-section ul li:before {
+            font-family: 'Font Awesome 5 Free';
+            content: '\f054'; /* FontAwesome icon for link bullet */
+            position: absolute;
+            left: 0;
+            top: 0;
+            font-size: 14px;
+            color: #3498db; /* Icon color */
+        }
+
+        footer {
+            background-color: #2c3e50; /* Footer background color */
+            color: #fff; /* Footer text color */
+            padding: 10px 0;
+            text-align: center;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+
+        .marquee {
+            white-space: nowrap;
+            overflow: hidden;
+            background-color: #2c3e50; /* Marquee background color */
+            color: #fff; /* Marquee text color */
+            padding: 10px;
+        }
+
+        @media only screen and (max-width: 600px) {
+            .library-hours,
+            .services,
+            .reference-section {
+                padding: 20px;
+            }
+        }
+
+        .upcoming-events {
+            margin-top: 20px;
+            padding: 20px;
+            background-color:rgba(255,255,255,0.5);
+            border-radius: 8px;
+        }
+
+        .upcoming-events h2 {
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: black;
+        }
+
+        .event {
+            margin-bottom: 30px;
+            text-align: left; /* Align event details to the left */
+            padding: 20px;
+            border-radius: 8px;
+            background-color: rgba(255,255,255,0.5);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .event h3 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        .event p {
+            font-size: 16px;
+            color: #666;
+            margin-bottom: 10px;
+        }
+
+        .event-registration-btn {
+            display: inline-block;
+            background-color: #2980b9;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+        }
+
+        .event-registration-btn:hover {
+            background-color: #1b6ca8;
+        }
+
+        /* Add reference font style */
+        .reference-link {
+            font-family: Arial, sans-serif;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div id="clg-logo">
+        <img src="clglogo.jpg" alt="clg Logo" width="100">
+    </div>
+    <h1>LIBRARY MANAGEMENT SYSTEM</h1>
+    <button class="logout-btn" onclick="location.href='logout.php'">Log Out</button>
+</header>
+
+<nav>
+    <a href="mainhome.html"><i class="fas fa-home"></i> Home</a> <!-- Home icon added here -->
+    <a href="bookinfo.html"><i class="fas fa-book"></i> Books</a> <!-- Book icon added here -->
+    <a href="return.html"><i class="fas fa-exchange-alt"></i> Borrow/Return</a> <!-- Borrow/Return icon added here -->
+    <a href="e-paper.html"><i class="far fa-newspaper"></i> E-NewsPaper</a> <!-- E-Newspaper icon added here -->
+    <a href="newsletter.html"><i class="far fa-newspaper"></i> E-NewsLetter</a> <!-- E-Newspaper icon added here -->
+    <a href="https://www.sju.edu.in/gallery" class="gallery-link"><i class="fas fa-images"></i> Gallery</a> <!-- Gallery icon added here -->
+    <a href="feedback.html"><i class="fas fa-comments"></i> Feedback</a>
+    <a href="reference.html" class="reference-link"><i class="fas fa-comments"></i> Reference</a> <!-- Added class to match the font -->
+    <a href="about.html"><i class="fas fa-info-circle"></i> About Us</a> <!-- About Us icon added here -->
+    
+    
+</nav>
+
+<section>
+    <h2><i class="fas fa-book-open"></i> Welcome to our Library</h2> <!-- Welcome icon added here -->
+    <p>Explore our collection of books and manage your library activities with ease.</p>
+</section>
+
+<section class="library-hours">
+    <h2><i class="far fa-clock"></i> Library Hours</h2> <!-- Clock icon added here -->
+    <table>
+        <tr>
+            <th>Day</th>
+            <th>Hours</th>
+        </tr>
+        <tr>
+            <td>Monday to Friday</td>
+            <td>08:00 am to 09:00 pm</td>
+        </tr>
+        <tr>
+            <td>Saturday's</td>
+            <td>08:00 am to 08:00 pm</td>
+        </tr>
+        <tr>
+            <td>Sunday's</td>
+            <td>Holiday</td>
+        </tr>
+        <tr>
+            <td>During Summer Vacation</td>
+            <td>09:00 am to 04:00 pm</td>
+        </tr>
+    </table>
+</section>
+
+<section class="services">
+    <h2><i class="fas fa-tools"></i> Library Services</h2> <!-- Tools icon added here -->
+    <!-- Added image here -->
+    <img src="libservice.jpg" alt="Library Services" style="width: 100%; max-width: 400px; margin-bottom: 20px;">
+    <!-- End of added image -->
+    <ul>
+        <li><a href="https://sjc.knimbus.com/user#/static/borrowingPrivileges"><i class="fas fa-book-open"></i> Borrowing Privileges</a> - Check out what you can borrow from our library.</li>
+        <li><a href="https://www.sju.edu.in/library/our-team#card-table"><i class="fas fa-users"></i> Library Team</a> - Meet our dedicated library staff.</li>
+        <li><a href="return.html"><i class="fas fa-redo-alt"></i> Online Book Renewal</a> - Renew your borrowed books online for added convenience.</li>
+        <li><a href="return.html"><i class="fas fa-bookmark"></i> Online Book Reservation</a> - Reserve books online to pick up later.</li>
+        <li><a href="https://www.sju.edu.in/library/open-access-resources"><i class="fas fa-globe"></i> Adopted Open Access System</a> - Explore our collection of open access resources.</li>
+        <li><a href="https://sjc.knimbus.com/user#/home"><i class="fas fa-cloud"></i> Knimbus System</a> - Access our library resources through Knimbus.</li>
+        <li><a href="https://www.sju.edu.in/library/about-us#43"><i class="fas fa-book"></i> GuildLines</a> - Get acquainted with our library guidelines.</li>
+        <li><a href="feedback.html"><i class="fas fa-comment-alt"></i> FeedBack</a> - Share your thoughts and suggestions with us.</li>
+        <li><a href="https://www.sju.edu.in/library/useful-links"><i class="fas fa-link"></i> Useful Links</a> - Explore helpful resources related to your studies.</li>
+        <li><a href="https://journals.sagepub.com/home/sgo"><i class="fas fa-journal-whills"></i> SAGE Open</a> - Access SAGE Open journals for research purposes.</li>
+        <li><a href="https://nptel.ac.in/"><i class="fas fa-graduation-cap"></i> NPTEL</a> - Enrich your knowledge with NPTEL courses.</li>
+        <li><a href="https://www.sju.edu.in/sjutermsandconditions"><i class="fas fa-file-alt"></i> Terms and Conditions</a> - Read our terms and conditions.</li>
+    </ul>
+</section>
+
+<section class="reference-section">
+    <h2><i class="fas fa-book-open"></i> General Reference Section</h2> <!-- Book icon added here -->
+    <!-- Added image here -->
+    <img src="general.jpg" alt="General Reference" style="width: 100%; max-width: 400px; margin-bottom: 20px;">
+    <!-- End of added image -->
+    <p>The Ready-Reference Tools relating to general reference consultation are available in the Reading Room. The following categories of Ready Reference Tools are generally available:</p>
+    <ul>
+        <li><a href="https://www.dictionary.com/"><i class="fas fa-language"></i> Dictionary</a> - Look up definitions and meanings of words.</li>
+        <li><a href="https://www.encyclopedia.com/"><i class="fas fa-book"></i> Encyclopedia</a> - Explore in-depth information on various topics.</li>
+        <li><a href="https://alumni.sju.edu.in/members"><i class="far fa-calendar-alt"></i> Yearbook</a> - Discover memories and events from past years.</li>
+        <li><a href="https://www.sju.edu.in/view-pdf/student-handbook"><i class="far fa-file-alt"></i> Handbook</a> - Access important information and guidelines.</li>
+        <li><a href="https://www.sju.edu.in/faculty-members"><i class="fas fa-user-tie"></i> Faculty</a> - Learn about our esteemed faculty members.</li>
+        <li><a href="https://www.sju.edu.in/events"><i class="far fa-calendar-alt"></i> Events</a> - Stay updated on upcoming events and activities.</li>
+    </ul>
+</section>
+<section class="upcoming-events">
+    <h2><i class="far fa-calendar-check"></i> Upcoming Events</h2>
+    <div class="event">
+        <div class="event-details">
+            <h3>TILASTO 2024</h3>
+            <p><strong>Date:</strong> March 28, 2024</p>
+            <p><strong>Time:</strong> 9:00 am - 4:00 pm</p>
+            <p><strong>Location:</strong> St. Joseph's University, Bengaluru</p>
+            <p><strong>Description:</strong> Hey data enthusiasts! Whether you're a seasoned analyst or just love a good Netflix binge, this fest is for you. Join us to connect with like-minded individuals and explore the latest trends in statistics and data analysis. Don't miss out on this exciting opportunity!</p>
+            <a href="https://frequentia.vercel.app/" class="event-registration-btn">Register Now</a>
+        </div>
+        <div class="event-photo-container">
+            <div class="event-photo">
+                <img src="event_photo.jpg" alt="TILASTO 2024" style="max-width: 200px; float: right; margin-left: 20px; border-radius: 8px;">
+            </div>
+            <div class="event-overlay">
+                <div class="overlay-content">
+                    <h4>Explore TILASTO 2024</h4>
+                    <p>Get ready for an immersive experience!</p>
+                    <a href="TILASTO.pdf" class="explore-btn">Explore Now</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<footer>
+    <div class="marquee">
+        <marquee behavior="scroll" direction="left">
+            &copy; 2024 Library Management System. All rights reserved.
+        </marquee>
+    </div>
+</footer>
+<script src="https://cdn.botpress.cloud/webchat/v1/inject.js"></script>
+    <script src="https://mediafiles.botpress.cloud/82f692fb-134e-47da-884f-b4e3454dd03d/webchat/config.js" defer></script>
+</body>
+</html>
+
+

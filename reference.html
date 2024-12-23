@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Search</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f7f7f7;
+            color: #333;
+            font-size: 16px;
+            text-align: center;
+        }
+
+        .header {
+            background-color: #7e8185;
+            color: #fff;
+            padding: 20px 0;
+            position: relative;
+        }
+
+        .header__title {
+            font-size: 2rem;
+            margin: 0;
+        }
+
+        .home-btn {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            color: #dae2eb;
+            font-size: 24px;
+            text-decoration: none; /* Add this line */
+        }
+
+        .search-bar {
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .search-bar__input {
+            padding: 10px;
+            font-size: 1rem;
+            border: 1px solid #ccc;
+            border-radius: 5px 0 0 5px;
+            width: 70%;
+            max-width: 300px;
+        }
+
+        .search-bar__button {
+            background-color: #8090a1;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            font-size: 1rem;
+            border-radius: 0 5px 5px 0;
+            cursor: pointer;
+        }
+
+        .search-bar__button:hover {
+            background-color: #73787c;
+        }
+
+        .description {
+            margin-top: 40px;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .featured-books {
+            margin-top: 40px;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .featured-book {
+            margin: 10px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            width: 200px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .featured-book img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <a href="homepg.html" class="home-btn">
+        <i class="fas fa-home"></i>
+    </a>
+    <header class="header">
+        <h1 class="header__title">Book Search</h1>
+    </header>
+
+    <div class="search-bar">
+        <input id="input" type="text" class="search-bar__input" placeholder="What would you like to know?" autofocus required>
+        <button id="submit" type="button" class="search-bar__button" aria-label="search">
+            Search
+        </button>
+    </div>
+
+    <div class="description">
+        <h2>About Book Search</h2>
+        <p>Welcome to Book Search, your gateway to discovering millions of books. Whether you're looking for a novel, a textbook, or a rare gem, start your journey here!</p>
+    </div>
+
+    <div class="featured-books">
+        <div class="featured-book">
+            <a href="https://www.google.co.in/books/edition/Adolf_Hitler/E--dDwAAQBAJ?hl=en&gbpv=1&dq=adolf+hitler&printsec=frontcover" target="_blank">
+                <img src="https://m.media-amazon.com/images/I/71eX4yHkhFL._AC_UF1000,1000_QL80_.jpg" alt="Book 1">
+                <h3>Adolf Hitler: A Life From Beginning to End</h3>
+            </a>
+        </div>
+        <div class="featured-book">
+            <a href="https://www.google.co.in/books/edition/Bhagat_Singh/aGBnDwAAQBAJ?hl=en&gbpv=1&dq=Bhagat+Singh&printsec=frontcover" target="_blank">
+                <img src="https://m.media-amazon.com/images/I/41u9bmpskCL.jpg" alt="Book 2">
+                <h3>Bhagat Singh Making of a Revolutionary</h3>
+            </a>
+        </div>
+        <div class="featured-book">
+            <a href="https://www.google.co.in/books/edition/Dear_Reader/evCgEAAAQBAJ?hl=en&gbpv=1&dq=Dear+Reader:+A+Writer%27s+Memoir&printsec=frontcover" target="_blank">
+                <img src="https://m.media-amazon.com/images/I/71JcsqRo3NL._AC_UF1000,1000_QL80_.jpg" alt="Book 3">
+                <h3>Dear Reader: A Writer's Memoir</h3>
+            </a>
+        </div>
+        <div class="featured-book">
+            <a href="https://www.google.co.in/books/edition/Here_There_and_Everywhere/mKxZDwAAQBAJ?hl=en&gbpv=1&dq=Here,+There+and+Everywhere&printsec=frontcover" target="_blank">
+                <img src="https://m.media-amazon.com/images/I/81KVRenYv+L._SY522_.jpg" alt="Book 4">
+                <h3>Here, There and Everywhere</h3>
+            </a>
+        </div>
+        <div class="featured-book">
+            <a href="https://www.google.co.in/books/edition/Mastering_UX_Design_with_Effective_Proto/CwfgEAAAQBAJ?hl=en&gbpv=1&dq=Mastering+UX+Design+with+Effective+Prototyping&printsec=frontcover" target="_blank">
+            <img src="https://m.media-amazon.com/images/I/61r3PGeBnuL._AC_UF1000,1000_QL80_.jpg" alt="Book 5">
+            <h3>Mastering UX Design with Effective Prototyping</h3>
+        </a>
+    </div>
+</div>
+
+<script>
+    // Redirecting to Google Books search
+    const submitBtn = document.querySelector("#submit");
+    submitBtn.addEventListener("click", function() {
+        const searchTerm = document.querySelector("#input").value.trim();
+        if (searchTerm !== "") {
+            window.location.href = `https://books.google.com/books?q=${encodeURIComponent(searchTerm)}`;
+        } else {
+            alert("Please enter a search term.");
+        }
+    });
+</script>
+
+<!-- Include the Font Awesome JavaScript library -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/all.min.js"></script>
+</body>
+</html>

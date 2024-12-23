@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>College System</title>
+    <!-- Bootstrap CSS for modern styling -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f7f7f7; /* Light background color */
+            color: #333; /* Dark text color */
+        }
+
+        /* Navbar custom styles */
+        .navbar {
+            background-color: rgba(153, 79, 79, 0.7) !important;
+        }
+
+        .navbar-brand {
+            font-size: 1.5rem;
+        }
+
+        .navbar-nav .nav-link {
+            color: #fff !important;
+        }
+
+        .navbar-nav .nav-link:hover {
+            color: #ddd !important;
+        }
+
+        /* Table custom styles */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+            background-color: #fff; /* White background for tables */
+            border-radius: 5px; /* Rounded corners */
+            overflow: hidden;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+        }
+
+        th, td {
+            padding: 12px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #99504f; /* Darker shade for table headers */
+            color: #fff; /* White text for headers */
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2; /* Light grey for even rows */
+        }
+
+        caption {
+            font-size: 1.5em;
+            margin: 10px;
+            color: #99504f; /* Consistent color with navbar */
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <a class="navbar-brand" href="#">Data</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="homepage.html">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="contactus.html">Contact</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="aboutUS.html">About Us</a>
+                </li>
+                <li class="nav-item">
+                    <button class="btn btn-primary" id="validate-btn">Validate XML</button>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container mt-5">
+        <h1 class="text-center">College System</h1>
+
+        <!-- Departments and Courses Table -->
+        <h2 class="mt-4">Departments and Courses</h2>
+        <table id="departments-table" class="table table-striped table-hover">
+            <caption>Departments and Courses</caption>
+            <thead>
+                <tr>
+                    <th>Department ID</th>
+                    <th>Department Name</th>
+                    <th>Course ID</th>
+                    <th>Course Title</th>
+                    <th>Course Credits</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Data will be dynamically populated here -->
+            </tbody>
+        </table>
+
+        <!-- Students Table -->
+        <h2>Students</h2>
+        <table id="students-table" class="table table-striped table-hover">
+            <caption>Student Information</caption>
+            <thead>
+                <tr>
+                    <th>Student ID</th>
+                    <th>Student Name</th>
+                    <th>Major</th>
+                    <th>Enrolled Courses</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Data will be dynamically populated here -->
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Validation Modal -->
+    <div class="modal fade" id="validationModal" tabindex="-1" role="dialog" aria-labelledby="validationModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="validationModalLabel">XML Validation</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <!-- Validation message will be displayed here -->
+                    <p id="validationMessage">Loading validation results...</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript to load XML, validate, and populate tables -->
+    <script>
+        function loadXMLDoc(filename) {
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function () {
+                if (this.readyState == 4) {
+                    if (this.status == 200) {
+                        console.log("XML Loaded Successfully");
+                        validateXML(this.responseXML);
+                        populateTables(this.responseXML);
+                    } else {
+                        console.error("Failed to load XML");
+                        document.getElementById("validationMessage").innerText = "Error: Unable to load XML.";
+                        $('#validationModal').modal('show');
+                    }
+                }
+            };
+            xhttp.open("GET", filename, true);
+            xhttp.send();
+        }
+
+        function validateXML(xml) {
+            var errors = [];
+            var departments = xml.getElementsByTagName("department");
+            var students = xml.getElementsByTagName("student");
+
+            if (departments.length === 0) {
+                errors.push("Error: No department data found.");
+            } else {
+                for (var i = 0; i < departments.length; i++) {
+                    var department = departments[i];
+                    if (!department.getAttribute("id")) {
+                        errors.push("Error: Department missing 'id' attribute.");
+                    }
+                    if (!department.getElementsByTagName("name")[0]) {
+                        errors.push("Error: Department with ID " + department.getAttribute("id") + " missing 'name' element.");
+                    }
+                    var courses = department.getElementsByTagName("course");
+                    for (var j = 0; j < courses.length; j++) {
+                        var course = courses[j];
+                        if (!course.getAttribute("id")) {
+                            errors.push("Error: Course missing 'id' attribute in department ID " + department.getAttribute("id"));
+                        }
+                        if (!course.getElementsByTagName("title")[0]) {
+                            errors.push("Error: Course with ID " + course.getAttribute("id") + " missing 'title' element.");
+                        }
+                        if (!course.getElementsByTagName("credits")[0]) {
+                            errors.push("Error: Course with ID " + course.getAttribute("id") + " missing 'credits' element.");
+                        }
+                    }
+                }
+            }
+
+            if (students.length === 0) {
+                errors.push("Error: No student data found.");
+            } else {
+                for (var k = 0; k < students.length; k++) {
+                    var student = students[k];
+                    if (!student.getAttribute("id")) {
+                        errors.push("Error: Student missing 'id' attribute.");
+                    }
+                    if (!student.getElementsByTagName("name")[0]) {
+                        errors.push("Error: Student with ID " + student.getAttribute("id") + " missing 'name' element.");
+                    }
+                    if (!student.getElementsByTagName("major")[0]) {
+                        errors.push("Error: Student with ID " + student.getAttribute("id") + " missing 'major' element.");
+                    }
+                    if (!student.getElementsByTagName("enrolled-courses")[0]) {
+                        errors.push("Error: Student with ID " + student.getAttribute("id") + " missing 'enrolled-courses' element.");
+                    } else {
+                        var enrolledCourses = student.getElementsByTagName("enrolled-courses")[0].getElementsByTagName("course");
+                        for (var l = 0; l < enrolledCourses.length; l++) {
+                            if (!enrolledCourses[l].getAttribute("id")) {
+                                errors.push("Error: Enrolled course missing 'id' attribute for student ID " + student.getAttribute("id"));
+                            }
+                        }
+                    }
+                }
+            }
+
+            if (errors.length > 0) {
+                document.getElementById("validationMessage").innerHTML = errors.join("<br>");
+            } else {
+                document.getElementById("validationMessage").innerText = "XML Validation Successful: No errors found.";
+            }
+            $('#validationModal').modal('show');
+        }
+
+        function populateTables(xml) {
+            var departmentsTable = document.getElementById("departments-table").getElementsByTagName("tbody")[0];
+            var studentsTable = document.getElementById("students-table").getElementsByTagName("tbody")[0];
+
+            var departments = xml.getElementsByTagName("department");
+            for (var i = 0; i < departments.length; i++) {
+                var department = departments[i];
+                var rows = department.getElementsByTagName("course");
+                for (var j = 0; j < rows.length; j++) {
+                    var row = rows[j];
+                    var newRow = departmentsTable.insertRow();
+                    newRow.insertCell(0).textContent = department.getAttribute("id");
+                    newRow.insertCell(1).textContent = department.getElementsByTagName("name")[0].textContent;
+                    newRow.insertCell(2).textContent = row.getAttribute("id");
+                    newRow.insertCell(3).textContent = row.getElementsByTagName("title")[0].textContent;
+                    newRow.insertCell(4).textContent = row.getElementsByTagName("credits")[0].textContent;
+                }
+            }
+
+            var students = xml.getElementsByTagName("student");
+            for (var k = 0; k < students.length; k++) {
+                var student = students[k];
+                var newRow = studentsTable.insertRow();
+                newRow.insertCell(0).textContent = student.getAttribute("id");
+                newRow.insertCell(1).textContent = student.getElementsByTagName("name")[0].textContent;
+                newRow.insertCell(2).textContent = student.getElementsByTagName("major")[0].textContent;
+                newRow.insertCell(3).textContent = student.getElementsByTagName("enrolled-courses")[0].getElementsByTagName("course").length;
+            }
+        }
+
+        document.getElementById("validate-btn").addEventListener("click", function() {
+            loadXMLDoc("data.xml");
+        });
+
+        // Load the XML document when the page loads
+        window.onload = function() {
+            loadXMLDoc("college_system.xml");
+        };
+    </script>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

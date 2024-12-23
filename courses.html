@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Elevate Academy Syllabus</title>
+    <!-- Include Google Fonts and Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f4f8;
+            background-image: url('https://png.pngtree.com/background/20210710/original/pngtree-final-battle-college-entrance-examination-preparation-for-college-entrance-examination-poster-picture-image_1023657.jpg');
+            color: #333;
+        }
+        header {
+            display: flex;
+            align-items: center;
+            background-color: #939598;
+            color: white;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        header h1 {
+            margin: 0;
+            font-size: 24px;
+            flex: 1;
+        }
+        .back-button {
+            display: flex;
+            align-items: center;
+            padding: 10px 20px;
+            background-color: #102a45;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 16px;
+            font-weight: 500;
+            transition: background-color 0.3s ease;
+        }
+        .back-button i {
+            margin-right: 8px;
+        }
+        .back-button:hover {
+            background-color:#102a45;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .table-wrapper {
+            margin-bottom: 40px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background-color: rgba(255,255,255,0.7);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+        th {
+            background-color: #939598;
+            color: #fff;
+            font-weight: 700;
+        }
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        caption {
+            caption-side: top;
+            font-weight: 500;
+            margin-bottom: 10px;
+            text-align: center;
+            font-size: 1.5em;
+            color:  #939598;
+        }
+        @media (max-width: 768px) {
+            th, td {
+                display: block;
+                width: 100%;
+                box-sizing: border-box;
+            }
+            th {
+                position: absolute;
+                top: -9999px;
+                left: -9999px;
+            }
+            td {
+                position: relative;
+                padding-left: 50%;
+                text-align: right;
+                border: none;
+                border-bottom: 1px solid #ddd;
+            }
+            td::before {
+                content: attr(data-label);
+                position: absolute;
+                left: 0;
+                width: 45%;
+                padding-left: 10px;
+                font-weight: 700;
+                text-align: left;
+                color:  #939598;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <a href="submit_application.html" class="back-button">
+            <i class="fas fa-arrow-left"></i> 
+            Back
+        </a>
+        <h1></h1>
+    </header>
+
+    <div class="container">
+        <div class="table-wrapper">
+            <table>
+                <caption>Faculty of Arts</caption>
+                <tr>
+                    <th>B.A Part I</th>
+                    <th>B.A Part II</th>
+                    <th>B.A Part III</th>
+                </tr>
+                <tr>
+                    <td data-label="B.A Part I">English</td>
+                    <td data-label="B.A Part II">English</td>
+                    <td data-label="B.A Part III">English</td>
+                </tr>
+                <tr>
+                    <td data-label="B.A Part I">Marathi</td>
+                    <td data-label="B.A Part II">Marathi</td>
+                    <td data-label="B.A Part III">Marathi</td>
+                </tr>
+                <tr>
+                    <td data-label="B.A Part I">Hindi</td>
+                    <td data-label="B.A Part II">Hindi</td>
+                    <td data-label="B.A Part III">Hindi</td>
+                </tr>
+                <tr>
+                    <td data-label="B.A Part I">Economics</td>
+                    <td data-label="B.A Part II">Economics</td>
+                    <td data-label="B.A Part III">Economics</td>
+                </tr>
+                <tr>
+                    <td data-label="B.A Part I">Geography</td>
+                    <td data-label="B.A Part II">Geography</td>
+                    <td data-label="B.A Part III">Geography</td>
+                </tr>
+                <tr>
+                    <td data-label="B.A Part I">History</td>
+                    <td data-label="B.A Part II">History</td>
+                    <td data-label="B.A Part III">History</td>
+                </tr>
+                <tr>
+                    <td data-label="B.A Part I">Politics</td>
+                    <td data-label="B.A Part II">Politics</td>
+                    <td data-label="B.A Part III">Politics</td>
+                </tr>
+                <tr>
+                    <td data-label="B.A Part I">Philosophy</td>
+                    <td data-label="B.A Part II">Philosophy</td>
+                    <td data-label="B.A Part III">Philosophy</td>
+                </tr>
+                <tr>
+                    <td data-label="B.A Part I">Psychology</td>
+                    <td data-label="B.A Part II">Psychology</td>
+                    <td data-label="B.A Part III">Psychology</td>
+                </tr>
+                <tr>
+                    <td data-label="B.A Part I">Sociology</td>
+                    <td data-label="B.A Part II">Sociology</td>
+                    <td data-label="B.A Part III">Sociology</td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="table-wrapper">
+            <table>
+                <caption>Faculty of Commerce</caption>
+                <tr>
+                    <th>B.Com I (Sem I & II)</th>
+                    <th>B.Com II (Sem III & IV)</th>
+                    <th>B.Com III (Sem V & VI)</th>
+                </tr>
+                <tr>
+                    <td data-label="B.Com I (Sem I & II)">Financial Accounting</td>
+                    <td data-label="B.Com II (Sem III & IV)">Corporate Accounting</td>
+                    <td data-label="B.Com III (Sem V & VI)">Business Regulatory Framework</td>
+                </tr>
+                <tr>
+                    <td data-label="B.Com I (Sem I & II)">Principles of Business Management</td>
+                    <td data-label="B.Com II (Sem III & IV)">Fundamentals of Entrepreneurship</td>
+                    <td data-label="B.Com III (Sem V & VI)">Co-operative Development</td>
+                </tr>
+                <tr>
+                    <td data-label="B.Com I (Sem I & II)">Principles of Marketing</td>
+                    <td data-label="B.Com II (Sem III & IV)">English</td>
+                    <td data-label="B.Com III (Sem V & VI)">Modern Management Practices</td>
+                </tr>
+                <tr>
+                    <td data-label="B.Com I (Sem I & II)">Insurance</td>
+                    <td data-label="B.Com II (Sem III & IV)">Financial Management</td>
+                    <td data-label="B.Com III (Sem V & VI)">Advanced Accountancy Paper-I</td>
+                </tr>
+                <tr>
+                    <td data-label="B.Com I (Sem I & II)">English</td>
+                    <td data-label="B.Com II (Sem III & IV)">Business Law</td>
+                    <td data-label="B.Com III (Sem V & VI)">Industrial Management P. I & II</td>
+                </tr>
+                <tr>
+                    <td data-label="B.Com I (Sem I & II)">Cost Accounting</td>
+                    <td data-label="B.Com II (Sem III & IV)">Human Resource Management</td>
+                    <td data-label="B.Com III (Sem V & VI)">Advanced Insurance Paper – I, II, III and IV</td>
+                </tr>
+                <tr>
+                    <td data-label="B.Com I (Sem I & II)">Business Statistics</td>
+                    <td data-label="B.Com II (Sem III & IV)">Operation Research</td>
+                    <td data-label="B.Com III (Sem V & VI)">Entrepreneurship Development</td>
+                </tr>
+                <tr>
+                    <td data-label="B.Com I (Sem I & II)">Taxation</td>
+                    <td data-label="B.Com II (Sem III & IV)">Direct Tax Laws</td>
+                    <td data-label="B.Com III (Sem V & VI)">Indirect Tax Laws</td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="table-wrapper">
+            <table>
+                <caption>Faculty of Science & Technology</caption>
+                <tr>
+                    <th>B.Sc Part I (Sem I & II)</th>
+                    <th>B.Sc Part II (Sem III & IV)</th>
+                    <th>B.Sc Part III (Sem V & VI)</th>
+                </tr>
+                <tr>
+                    <td data-label="B.Sc Part I (Sem I & II)">Botany</td>
+                    <td data-label="B.Sc Part II (Sem III & IV)">Botany</td>
+                    <td data-label="B.Sc Part III (Sem V & VI)">Botany</td>
+                </tr>
+                <tr>
+                    <td data-label="B.Sc Part I (Sem I & II)">Chemistry</td>
+                    <td data-label="B.Sc Part II (Sem III & IV)">Chemistry</td>
+                    <td data-label="B.Sc Part III (Sem V & VI)">Chemistry</td>
+                </tr>
+                <tr>
+                    <td data-label="B.Sc Part I (Sem I & II)">Computer Science</td>
+                    <td data-label="B.Sc Part II (Sem III & IV)">Computer Science</td>
+                    <td data-label="B.Sc Part III (Sem V & VI)">Computer Science</td>
+                </tr>
+                <tr>
+                    <td data-label="B.Sc Part I (Sem I & II)">Mathematics</td>
+                    <td data-label="B.Sc Part II (Sem III & IV)">Mathematics</td>
+                    <td data-label="B.Sc Part III (Sem V & VI)">Mathematics</td>
+                </tr>
+                <tr>
+                    <td data-label="B.Sc Part I (Sem I & II)">Physics</td>
+                    <td data-label="B.Sc Part II (Sem III & IV)">Physics</td>
+                    <td data-label="B.Sc Part III (Sem V & VI)">Physics</td>
+                </tr>
+                <tr>
+                    <td data-label="B.Sc Part I (Sem I & II)">Zoology</td>
+                    <td data-label="B.Sc Part II (Sem III & IV)">Zoology</td>
+                    <td data-label="B.Sc Part III (Sem V & VI)">Zoology</td>
+                </tr>
+                <tr>
+                    <td data-label="B.Sc Part I (Sem I & II)">Statistics</td>
+                    <td data-label="B.Sc Part II (Sem III & IV)">Statistics</td>
+                    <td data-label="B.Sc Part III (Sem V & VI)">Statistics</td>
+                </tr>
+                <tr>
+                    <td data-label="B.Sc Part I (Sem I & II)">English</td>
+                    <td data-label="B.Sc Part II (Sem III & IV)">English</td>
+                    <td data-label="B.Sc Part III (Sem V & VI)">English</td>
+                </tr>
+                <tr>
+                    <td data-label="B.Sc Part I (Sem I & II)">Geography</td>
+                    <td data-label="B.Sc Part II (Sem III & IV)">Geography</td>
+                    <td data-label="B.Sc Part III (Sem V & VI)">Geography</td>
+                </tr>
+                <tr>
+                    <td data-label="B.Sc Part I (Sem I & II)">Environmental Science</td>
+                    <td data-label="B.Sc Part II (Sem III & IV)">Environmental Science</td>
+                    <td data-label="B.Sc Part III (Sem V & VI)">Environmental Science</td>
+                </tr>
+                <tr>
+                    <td data-label="B.Sc Part I (Sem I & II)">B.Sc. (Entire Computer Science) – I (Sem I & II)</td>
+                    <td data-label="B.Sc Part II (Sem III & IV)">B.Sc. (Entire Computer Science) – II (Sem III & IV)</td>
+                    <td data-label="B.Sc Part III (Sem V & VI)">B.Sc. (Entire Computer Science) – III (Sem V & VI)</td>
+                </tr>
+                <tr>
+                    <td data-label="B.Sc Part I (Sem I & II)">B.C.A. I (Sem I & II)</td>
+                    <td data-label="B.Sc Part II (Sem III & IV)">B.C.A. II (Sem III & IV)</td>
+                    <td data-label="B.Sc Part III (Sem V & VI)">B.C.A. III (Sem V & VI)</td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="table-wrapper">
+            <table>
+                <caption>All Post Graduate</caption>
+                <tr>
+                    <th>M.A</th>
+                    <th>M.Sc</th>
+                </tr>
+                <tr>
+                    <td data-label="M.A">M.A. I Year Hindi</td>
+                    <td data-label="M.Sc">M.Sc. I (Sem I & II) Chemistry</td>
+                </tr>
+                <tr>
+                    <td data-label="M.A">M.A. Part II Hindi</td>
+                    <td data-label="M.Sc">M.Sc. II (Sem III & IV) Organic Chemistry</td>
+                </tr>
+                <tr>
+                    <td data-label="M.A">M.A. I - Marathi Sem I & II</td>
+                    <td data-label="M.Sc">M.Sc. I (Sem I & II) Computer Science</td>
+                </tr>
+                <tr>
+                    <td data-label="M.A">M.A. Part II – Marathi (Sem III & IV)</td>
+                    <td data-label="M.Sc">M.Sc. II (Sem III & IV) Computer Science</td>
+                </tr>
+                <tr>
+                    <td data-label="M.A">M.A. I Year Sociology</td>
+                    <td data-label="M.Sc">M.Sc. I (Sem I & II) Physics</td>
+                </tr>
+                <tr>
+                    <td data-label="M.A">M.A. Part II Sociology</td>
+                    <td data-label="M.Sc">M.Sc. II (Sem III & IV) Physics</td>
+                </tr>
+                <tr>
+                    <td data-label="M.A">M.A. I Year Psychology</td>
+                    <td data-label="M.Sc">M.Sc. I (Sem I & II) Mathematics</td>
+                </tr>
+                <tr>
+                    <td data-label="M.A">M.A. Part II Psychology</td>
+                    <td data-label="M.Sc">M.Sc. II (Sem III & IV) Mathematics</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</body>
+</html>

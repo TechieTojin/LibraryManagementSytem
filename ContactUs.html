@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #a37176;
+            --secondary-color: #a37176;
+            --accent-color:  #a37176;
+            --text-color: #4e434e;
+            --background-color: #FFF0F3;
+        }
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: var(--background-color);
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        h1 {
+            color: var(--text-color);
+            text-align: center;
+            margin-bottom: 20px;
+            font-weight: 500;
+        }
+        header, footer {
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 10px 0;
+            text-align: center;
+        }
+        .navbar {
+            background-color: var(--primary-color);
+        }
+        .navbar-brand {
+            color: white !important;
+            font-size: 24px;
+            font-weight: bold;
+        }
+        .nav-link {
+            color: white !important;
+            margin-right: 15px;
+        }
+        .nav-link:hover {
+            color: var(--accent-color) !important;
+        }
+        main {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-grow: 1;
+        }
+        .form-container {
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            max-width: 600px;
+            width: 100%;
+        }
+        .button {
+            background-color: var(--accent-color);
+            color: white;
+            padding: 15px 20px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 18px;
+            font-weight: 500;
+            transition: background-color 0.3s ease;
+            width: 100%;
+        }
+        .button:hover {
+            background-color: var(--text-color);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg">
+            <a class="navbar-brand" href="#">Admin Panel</a>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="Adminhome.html">Home</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <div class="form-container">
+            <h1>Contact Us</h1>
+            <p>If you have any questions or concerns, please feel free to reach out!</p>
+            <table style="width: 100%;">
+                <tr>
+                    <td align="right"><i class="fas fa-phone"></i> Phone Number:</td>
+                    <td>+91 12345 67890</td>
+                </tr>
+                <tr>
+                    <td align="right"><i class="fas fa-envelope"></i> Email:</td>
+                    <td>info@college.edu</td>
+                </tr>
+                <tr>
+                    <td align="right"><i class="fas fa-map-marker-alt"></i> Address:</td>
+                    <td>123 College Lane, Bangalore, India</td>
+                </tr>
+                <tr>
+                    <td colspan="2" align="center">
+                        <button class="button" onclick="window.location.href='map.html'">View Map</button>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </main>
+    <footer>
+        <div class="container text-center">
+            <p>&copy; 2024 College Name. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>

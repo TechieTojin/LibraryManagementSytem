@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Library Management System</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f2f2f2;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+            position: relative;
+        }
+
+        #clg-logo {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+        }
+
+        nav {
+            background-color: #444;
+            color: #fff;
+            padding: 10px 0;
+            text-align: center;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            padding: 10px;
+            margin: 0 10px;
+            transition: all 0.3s ease;
+        }
+
+        nav a:hover {
+            color: #ffd700;
+        }
+
+        section {
+            padding: 20px;
+            text-align: center;
+        }
+
+        section h2 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        section p {
+            font-size: 16px;
+            color: #666;
+            margin-bottom: 20px;
+        }
+
+        .library-hours,
+        .services,
+        .reference-section {
+            background-color: #fff;
+            padding: 30px;
+            margin: 20px auto;
+            max-width: 800px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            text-align: left;
+        }
+
+        .library-hours table,
+        .services ul,
+        .reference-section ul {
+            list-style: none;
+            padding-left: 0;
+            margin-top: 0;
+        }
+
+        .library-hours th,
+        .library-hours td {
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+            font-size: 16px;
+        }
+
+        .library-hours th {
+            color: #333;
+        }
+
+        .services h2,
+        .reference-section h2 {
+            color: #333;
+            font-size: 20px;
+            margin-bottom: 20px;
+        }
+
+        .services ul li,
+        .reference-section ul li {
+            margin-bottom: 10px;
+            font-size: 16px;
+            color: #555;
+            position: relative;
+            padding-left: 20px;
+        }
+
+        .services ul li:before,
+        .reference-section ul li:before {
+            content: "\f058";
+            font-family: 'Font Awesome 5 Free';
+            position: absolute;
+            left: 0;
+            top: 0;
+            font-size: 14px;
+            color: #333;
+        }
+
+        footer {
+            background-color: #333;
+            color: #fff;
+            padding: 2px 0;
+            text-align: center;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+
+        .marquee {
+            white-space: nowrap;
+            overflow: hidden;
+            background-color: #333;
+            color: #fff;
+            padding: 10px;
+        }
+
+        @media only screen and (max-width: 600px) {
+            .library-hours,
+            .services,
+            .reference-section {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <div id="clg-logo">
+            <img src="clglogo.jpg" alt="clg Logo" width="100">
+        </div>
+        <h1>Library Management System</h1>
+    </header>
+
+    <nav>
+        <a href="mainhome.html"><i class="fas fa-home"></i> Home</a>
+        <a href="bookinfo.html"><i class="fas fa-book"></i> Books</a>
+        <a href="return.html"><i class="fas fa-exchange-alt"></i> Borrow/Return</a>
+        <a href="about.html"><i class="fas fa-info-circle"></i> About Us</a>
+    </nav>
+
+    <section>
+        <h2><i class="fas fa-book-open"></i> Welcome to our Library</h2>
+        <p>Explore our collection of books and manage your library activities with ease.</p>
+    </section>
+
+    <section class="library-hours">
+        <h2><i class="far fa-clock"></i> Library Hours</h2>
+        <table>
+            <tr>
+                <th>Day</th>
+                <th>Hours</th>
+            </tr>
+            <tr>
+                <td>Monday to Friday</td>
+                <td>08:00 am to 09:00 pm</td>
+            </tr>
+            <tr>
+                <td>Saturday's</td>
+                <td>08:00 am to 08:00 pm</td>
+            </tr>
+            <tr>
+                <td>Sunday's</td>
+                <td>Holiday</td>
+            </tr>
+            <tr>
+                <td>During Summer Vacation</td>
+                <td>09:00 am to 04:00 pm</td>
+            </tr>
+        </table>
+    </section>
+
+    <section class="services">
+        <h2><i class="fas fa-tools"></i> Library Services</h2>
+        <img src="libservice.jpg" alt="Library Services" style="width: 100%; max-width: 400px; margin-bottom: 20px;">
+        <ul>
+            <li>BEST PRACTICES RFID Self Circulation Kiosk facility</li>
+            <li>Information Literacy program</li>
+            <li>Federated Search/Universal Search/Single Window Search</li>
+            <li>Book Exhibition</li>
+            <li>Best Library User Award – for faculties and students</li>
+            <li>Dynamic Library Web page</li>
+            <li>Library Brochure</li>
+            <li>Access to Institutional Digital Repository through DSpace</li>
+            <li>Online Book Renewal</li>
+            <li>Online Book Reservation</li>
+            <li>e-Resource Requisition System</li>
+            <li>Adopted Open Access System</li>
+            <li>Remote access to e-resources through Knimbus authentication system software</li>
+            <li>Shelf-list to all the book shelves</li>
+            <li>Display of newspaper clipping on the Notice Board</li>
+            <li>Career/Employment information services</li>
+            <li>Internet facility</li>
+            <li>Suggestion box</li>
+            <li>Displaying new arrivals</li>
+            <li>Self-study Kiosk with WiFi Laptop study facility</li>
+            <li>Book Suggestion system</li>
+            <li>Book Bank facility</li>
+            <li>Current Awareness service</li>
+            <li>Users Personal Page in WEBOPAC</li>
+            <li>Reprography facility</li>
+            <li>User Feedback System</li>
+        </ul>
+    </section>
+
+    <section class="reference-section">
+        <h2><i class="fas fa-book-open"></i> General Reference Section</h2>
+        <img src="general.jpg" alt="General Reference" style="width: 100%; max-width: 400px; margin-bottom: 20px;">
+        <p>The Ready-Reference Tools relating to general reference consultation are available in the Reading Room. The following categories of Ready Reference Tools are generally available:</p>
+        <ul>
+            <li>Dictionary</li>
+            <li>Encyclopedia</li>
+            <li>Yearbook</li>
+            <li>Almanac</li>
+            <li>Handbook</li>
+            <li>Directory</li>
+            <li>Guidebook, etc.</li>
+        </ul>
+    </section>
+
+    <footer>
+        <div class="marquee">
+            <marquee behavior="scroll" direction="left">
+                &copy; 2024 Library Management System. All rights reserved.
+            </marquee>
+        </div>
+    </footer>
+</body>
+
+</html>

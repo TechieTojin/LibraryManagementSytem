@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feedback for Our Website</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"> <!-- Font Awesome CSS -->
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-image: url('feedback.jpg');
+            background-size: cover; /* Cover the entire screen */
+            background-position: center;
+        }
+
+        .container {
+            max-width: 500px;
+            background: rgba(255, 255, 255, 0.8); /* Adjusted the opacity */
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .container:hover {
+            transform: translateY(-5px);
+        }
+
+        .title-box {
+            margin-bottom: 30px;
+        }
+
+        h1 {
+            color: #333;
+            font-size: 36px;
+            text-transform: uppercase;
+            margin: 0;
+            padding: 0;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+            text-align: left;
+        }
+
+        label {
+            font-weight: bold;
+            display: block;
+            margin-bottom: 5px;
+            color: #555;
+            font-size: 18px;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            background-color: #f3f3f3;
+            box-sizing: border-box;
+            margin-top: 5px;
+            font-size: 16px;
+            transition: border-color 0.3s ease;
+        }
+
+        input[type="text"]:focus,
+        input[type="email"]:focus,
+        textarea:focus {
+            border-color: #009688;
+        }
+
+        textarea {
+            resize: none;
+            min-height: 100px;
+        }
+
+        input[type="submit"] {
+            background-color: #009688;
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            font-size: 18px;
+            text-transform: uppercase;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #00796b;
+        }
+
+        /* Home Button */
+        .home-btn {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            color: #009688;
+            text-decoration: none;
+        }
+
+        .fa-home {
+            font-size: 40px; /* Adjust the size of the home icon */
+            color:#dae2eb;
+        }
+    </style>
+</head>
+<body>
+    <a href="homepg.html" class="home-btn">
+        <i class="fas fa-home"></i> <!-- Font Awesome Home Icon -->
+    </a>
+    <div class="container">
+        <div class="title-box">
+            <h1 style="color: #009688;">Feedback for Our Website</h1>
+        </div>
+        <form action="feedback.php" method="post">
+            <div class="form-group">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="Name"  required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="Email" required>
+            </div>
+            <div class="form-group">
+                <label for="comments">Comments:</label>
+                <textarea id="comments" name="Comments"  required></textarea>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Submit">
+            </div>
+        </form>
+    </div>
+</body>
+</html>

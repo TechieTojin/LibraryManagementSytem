@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Teachers</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #a37176;
+            --secondary-color: #a37176;
+            --accent-color: #a37176;
+            --text-color: #4e434e;
+            --background-color: #FFF0F3;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-image: url('https://thumbs.dreamstime.com/b/photo-beautiful-teacher-smiling-front-class-student-background-back-to-school-theme-moment-school-back-to-324687227.jpg');
+            background-size: cover;
+            background-position: center;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        h1 {
+            color: var(--text-color);
+            text-align: center;
+            margin-bottom: 20px;
+            font-weight: 500;
+        }
+
+        header,
+        footer {
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 10px 0;
+            text-align: center;
+        }
+
+        .navbar {
+            background-color: var(--primary-color);
+        }
+
+        .navbar-brand {
+            color: white !important;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .nav-link {
+            color: white !important;
+            margin-right: 15px;
+        }
+
+        .nav-link:hover {
+            color: var(--accent-color) !important;
+        }
+
+        .navbar-toggler {
+            border: none;
+        }
+
+        main {
+            flex-grow: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .table-container {
+            background-color: rgba(255, 255, 255, 0.8);
+            border-radius: 12px;
+            padding: 20px;
+            max-width: 800px;
+            width: 100%;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th,
+        td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid var(--secondary-color);
+        }
+
+        th {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        footer {
+            text-align: center;
+        }
+
+        .input-container {
+            position: relative;
+        }
+
+        .input-icon {
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 18px;
+        }
+
+        .input-icon.valid {
+            color: green;
+        }
+
+        .input-icon.invalid {
+            color: red;
+        }
+
+        @media (max-width: 600px) {
+            .table-container {
+                padding: 15px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg">
+            <a class="navbar-brand" href="#">Admin Panel</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="Adminhome.html">Home</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <div class="table-container">
+            <h1>Teachers List</h1>
+            <table id="teachersTable">
+                <thead>
+                    <tr>
+                        <th>Teacher Name</th>
+                        <th>Employee ID</th>
+                        <th>Subject</th>
+                        <th>Contact Number</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Teacher data will be populated here dynamically -->
+                </tbody>
+            </table>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 College Management. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        async function fetchTeachers() {
+            try {
+                const response = await fetch('/api/teachers'); // Adjust the API endpoint accordingly
+                const teachers = await response.json();
+
+                const teachersTableBody = document.querySelector('#teachersTable tbody');
+                teachers.forEach(teacher => {
+                    const row = document.createElement('tr');
+                    row.innerHTML = `
+                        <td>${teacher.name}</td>
+                        <td>
+                            <div class="input-container">
+                                <input type="text" value="${teacher.employeeId}" oninput="validateEmployeeId(this)">
+                                <i class="fas" id="icon-${teacher.employeeId}" class="input-icon"></i>
+                            </div>
+                        </td>
+                        <td>${teacher.subject}</td>
+                        <td>${teacher.contact}</td>
+                    `;
+                    teachersTableBody.appendChild(row);
+                });
+            } catch (error) {
+                console.error('Error fetching teachers:', error);
+            }
+        }
+
+        // Function to validate the Employee ID (should be numbers only)
+        function validateEmployeeId(input) {
+            const id = input.value;
+            const icon = document.getElementById(`icon-${id}`);
+
+            if (/^\d+$/.test(id)) {
+                icon.classList.add('valid');
+                icon.classList.remove('invalid');
+                icon.innerHTML = '<i class="fas fa-check-circle"></i>'; // Display tick mark
+            } else {
+                icon.classList.add('invalid');
+                icon.classList.remove('valid');
+                icon.innerHTML = '<i class="fas fa-times-circle"></i>'; // Display cross mark
+            }
+        }
+
+        // Fetch teacher data when the page loads
+        window.onload = fetchTeachers;
+    </script>
+</body>
+
+</html>

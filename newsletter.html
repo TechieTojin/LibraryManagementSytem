@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Header and Footer with Background Image</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: url("https://t3.ftcdn.net/jpg/03/16/86/98/360_F_316869849_oHD2qOXRJlZE2Md6SNv0MtvDcgZyHkfv.jpg"); /* Check and ensure the path to your background image */
+            background-size: cover;
+            background-position: center;
+            
+            
+        }
+        nav {
+            background-color: #000000;
+            color: white;
+            padding: 10px;
+        }
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+        nav ul li {
+            display: inline;
+            margin-right: 10px;
+        }
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+        }
+        header {
+    background-color: rgba(0, 0, 0, 0.5); /* Set the background color with reduced opacity */
+    padding: 10px;
+}
+        .head-main {
+            color: white;
+            text-align: center;
+            padding: 30px 0;
+        }
+        .name h1 {
+            margin: 0;
+            font-size: 24px;
+            font-weight: bold;
+        }
+        .name h2 {
+            margin: 0;
+            font-size: 20px;
+            background-color: aliceblue;
+        }
+        .images img {
+            max-width: 100px;
+            max-height: 100px;
+
+            top: 0;
+            left: 0;
+        }
+        footer {
+            background-color: #000000;
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+        .categories {
+            text-align: center;
+            padding: 20px;
+        }
+        .category-box {
+            display: inline-block;
+			background-color:#ffd900; 
+			color:rgb(0, 0, 0); 
+			text-decoration:none; 
+			padding :10px 20px; 
+			margin :10px; 
+			border-radius :5px; 
+		}
+		.category-box:hover {
+			background-color:#ff0000; 
+        
+		}
+		.tiro-kannada-regular {
+		  font-family:"Tiro Kannada", serif; 
+		  font-weight :400; 
+		  font-style:normal; 
+		}
+
+		.tiro-kannada-regular-italic {
+		  font-family:"Tiro Kannada", serif; 
+		  font-weight :400; 
+		  font-style :italic; 
+		}
+
+		.tiro-devanagari-hindi-regular {
+		  font-family:"Tiro Devanagari Hindi", serif; 
+		  font-weight :400; 
+		  font-style:normal; 
+		}
+
+		.tiro-devanagari-hindi-regular-italic {
+		  font-family:"Tiro Devanagari Hindi", serif; 
+		  font-weight :400; 
+		  font-style :italic; 
+		}
+    </style>
+</head>
+<body>
+    <nav>
+        <ul>
+           <li><a href="homepg.html">Home</a></li>
+           
+       </ul>
+   </nav>
+   <header class="head-main">
+       <div class="name">
+           <h1>ST JOSEPH'S UNIVERSITY</h1>
+           <h1>LIBRARY</h1>
+       </div>
+       <div class="images">
+           <img src="clglogo.jpg" alt="University Logo">
+       </div>
+   </header>
+
+   <main>
+       <section class="categories">
+        <h2><strong style="color: rgb(255, 255, 255);">English Magazines</strong></h2>
+           <div class="category-list">
+               <a href="https://www.frontline.in/" class="category-box"><strong>Frontline Magazine</strong></a>
+               <a href="https://www.indiatoday.in/" class="category-box"><strong>India Today</strong></a>
+               <a href="https://www.outlookindia.com/" class="category-box"><strong>Outlook</strong></a>
+               <a href="https://www.theweek.in/" class="category-box"><strong> Week</strong></a>              
+           </div>
+       </section>
+
+       <section class="categories">
+        <h2><strong style="color: rgb(255, 255, 255);">Kannada  Magazines</strong></h2>
+           <div class="category-list">
+               <a href="https://www.magzter.com/magazines/language/Kannada" class="category-box"><strong>ಮ್ಯಾಗ್ಸ್ಟರ್</strong></a>
+               <a href="http://www.mayuraezine.com" class="category-box"><strong>ಮಯೂರ</strong></a>
+               <a href="https://www.discountmags.com/magazine/be-a-winner-kannada-digital-m" class="category-box"><strong>ಬಿ ಎ ವಿನ್ನರ್</strong></a>              
+           </div>
+       </section>
+
+       <section class="categories">
+        <h2><strong style="color: rgb(255, 255, 255);">Hindi Magazines</strong></h2>
+           <div class="category-list">
+               <a href="https://www.grihshobha.in/" class="category-box"><strong>गृहशोभा</strong></a>
+               <a href="https://www.magzter.com/IN/Anant_Media_Pvt_Ltd/Tehelka_Hindi/News/All-Issues" class="category-box"><strong>तहलका</strong></a>
+               <a href="https://www.pdgroup.in/" class="category-box"><strong>प्रतियोगिता दर्पण</strong></a>              
+           </div>
+       </section>
+
+       <footer>
+           <p>&copy; 2024 Library Management System. All rights reserved.</p>
+       </footer>
+   </main>
+
+   <!-- Include jQuery -->
+   <script src="https://code.jquery.com/jquery-3.6.0.slim.min.js"></script>
+</body>
+</html>  

@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Library System</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: url('book.jpg') center/cover no-repeat;
+        }
+
+        form {
+            background-color: rgba(240, 240, 240, 0);
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            width: 300px;
+            text-align: center;
+            animation: animateBorder 2s infinite; /* Apply the animation */
+        }
+
+        h1 {
+            background-color: transparent;
+            color: black;
+            padding: 10px;
+            border-radius: 8px 8px 0 0;
+            margin-top: 0;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: black;
+        }
+
+        input,
+        select {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 16px;
+            border: 1px solid #dddddd;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        input[type="submit"] {
+            background-color: rgb(239, 93, 93);
+            color: white;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+
+        .message {
+            display: none;
+            background-color: #f2f2f2;
+            padding: 10px;
+            margin-top: 10px;
+            border-radius: 4px;
+        }
+
+        #borrow:checked~.message.borrow,
+        #return:checked~.message.return {
+            display: block;
+        }
+
+        @keyframes animateBorder {
+            30% {
+                border-color: transparent; /* Start with transparent border */
+            }
+            50% {
+                border-color: lightgreen; /* End with black border */
+            }
+        }
+
+        /* Home Button Styles */
+        .home-btn {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            background-color: rgba(255, 255, 255, 0.8); /* Light background */
+            color: black;
+            padding: 10px;
+            border-radius: 50%;
+            cursor: pointer;
+            text-decoration: none;
+            z-index: 9999; /* Ensure the button appears on top of other elements */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Add shadow effect */
+        }
+
+        .home-btn i {
+            font-size: 24px;
+        }
+    </style>
+</head>
+<body>
+    <form id="libraryForm" action="review.php" method="post">
+        <h1>Library System</h1>
+
+        <label for="studentName">Student Name:</label>
+        <input type="text" id="studentname" name="studentname" required>
+
+        <label for="registerNumber">Register Number:</label>
+        <input type="text" id="registernumber" name="registernumber" required>
+
+        <label for="bookId">Book ID:</label>
+        <input type="text" id="bookid" name="bookid" required>
+
+        <label for="operation">Operation:</label>
+        <select id="operation" name="operation" required>
+            <option value="borrow">Borrow</option>
+            <option value="return">Return</option>
+        </select>
+
+        <input type="submit" value="Submit">
+
+        <div class="message borrow">
+            Borrowing book with ID: <span id="borrowBookId"></span> by <span id="borrowStudentName"></span> (Reg. No: <span
+                id="borrowRegisterNumber"></span>)
+        </div>
+
+        <div class="message return">
+            Returning book with ID: <span id="return"></span>
+        </div>
+
+        <div id="confirmationMessage" class="message">
+            Your operation (Borrow or Return) has been successfully done.
+        </div>
+    </form>
+
+    <!-- Home Button -->
+    <a href="homepg.html" class="home-btn">
+        <i class="fas fa-home"></i> <!-- Font Awesome Home Icon -->
+    </a>
+</body>
+</html>
